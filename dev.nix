@@ -15,7 +15,7 @@ cat << "EOF"
  | |__| | \__ \ | | | | | | |_| |
   \____/|_|___/_| |_|_| |_|\__,_|  
                                                                   
-              POWERED BY JISHNU             
+     POWERED BY Hopingboyz          
 ================================================
 EOF
 
@@ -28,7 +28,7 @@ SEED_FILE="$VM_DIR/seed.iso"
 MEMORY=30720   # 32GB RAM
 CPUS=7
 SSH_PORT=24
-DISK_SIZE=100G
+DISK_SIZE=90G
 
 mkdir -p "$VM_DIR"
 cd "$VM_DIR"
@@ -88,5 +88,5 @@ exec qemu-system-x86_64 \
     -drive file="$SEED_FILE",format=raw,if=virtio \
     -boot order=c \
     -device virtio-net-pci,netdev=n0 \
-    -netdev user,id=n0,hostfwd=tcp::"$SSH_PORT"-:22 \ # Forward host port $SSH_PORT to VM's SSH port 22
+    -netdev user,id=n0,hostfwd=tcp::"$SSH_PORT"-:22 \
     -nographic -serial mon:stdio
